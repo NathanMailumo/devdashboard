@@ -1,0 +1,67 @@
+body{
+  margin: 0;
+  font: 400 1rem/1.5 "Inter", sans-serif;
+  background: #f8fafc;
+}
+:root{
+  --sidebar-bg: #334155;
+  --text: #fff;
+}
+.app{
+  display: flex;
+  min-height: 100vh;
+  gap: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+.logo{
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sidebar{
+  width: 250px;
+  background: var(--sidebar-bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 28px 20px;
+  border-radius: 28px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.18);
+  box-sizing: border-box;
+}
+.menu{
+  margin: 0;
+  width: 100%;
+}
+.menu ul{
+  padding: 0;
+  margin: 0;
+}
+.menu ul li{
+  list-style: none;
+  padding: 12px 0;
+  text-align: center;
+  font-weight: 500;
+  opacity: 0.95;
+
+}
+h3{
+  margin-top: 34px;
+  margin-bottom: 28px;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px){
+  .app{
+    flex-direction: column;
+  }
+
+  .sidebar{
+    width: 100%;
+  }
+}
+
