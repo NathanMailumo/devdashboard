@@ -1,24 +1,13 @@
 import { HomePage } from "./components/homepage";
+// import {Link} from "react-router-dom";
 import "./App.css";
+import { NavBar } from "./components/navbar";
 
 function App() {
   
   return (
     <div className="app">
-      <div className="sidebar">
-        <a className="logo" href="">
-          NAME.COM
-        </a>
-        <h3>Dashboard</h3>
-        <div className="menu">
-          <ul>
-            <li>Projects</li>
-            <li>Favourites</li>
-            <li>Trash</li>
-          </ul>
-        </div>
-      </div>
-
+      <NavBar />
       <HomePage/>
     </div>
   );
