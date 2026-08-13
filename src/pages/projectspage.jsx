@@ -1,8 +1,14 @@
 import "./projectspage.css";
 import heroImage from "../assets/hero.png";
 import { NavBar } from "../components/navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+// import { useState } from "react";
 
-export function ProjectsPage() {
+export function ProjectsPage({isFavourite, toggleFavourite}) {
+ 
+
   const otherProjects = [
     {
       title: "Project 1",
@@ -79,6 +85,22 @@ export function ProjectsPage() {
                     <strong>Stack:</strong> {project.stack}
                   </p>
                 </div>
+                <button
+                  type="button"
+                  className={`favourite-button ${
+                    isFavourite.includes(project.title) ? "is-active" : ""
+                  }`}
+                  onClick={() => toggleFavourite(project.title)}
+                  aria-label={`Toggle favorite for ${project.title}`}
+                >
+                  <FontAwesomeIcon
+                    icon={
+                      isFavourite.includes(project.title)
+                        ? faHeartSolid
+                        : faHeartRegular
+                    }
+                  />
+                </button>
               </div>
             </article>
           ))}
