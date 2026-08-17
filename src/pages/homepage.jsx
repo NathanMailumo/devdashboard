@@ -3,33 +3,10 @@ import heroImage from "../assets/hero.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
-// import { useState } from "react";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import {otherProjects} from "../data/projects"
 
-export function HomePage({isFavourite, toggleFavourite}) {
-
-  const otherProjects = [
-    {
-      title: "Project 1",
-      description: "Project 1 Description",
-      stack: "Project 1 Stack",
-      status: "Active",
-      image: heroImage,
-    },
-    {
-      title: "Project 2",
-      description: "Project 2 Description",
-      stack: "Project 2 Stack",
-      status: "In Review",
-      image: heroImage,
-    },
-    {
-      title: "Project 3",
-      description: "Project 3 Description",
-      stack: "Project 3 Stack",
-      status: "Planned",
-      image: heroImage,
-    },
-  ];
+export function HomePage({isFavourite, toggleFavourite, isTrash, toggleTrash}) {
 
   return (
     <div className="homepage">
@@ -68,7 +45,9 @@ export function HomePage({isFavourite, toggleFavourite}) {
         </div>
 
         <div className="projects-grid">
-          {otherProjects.map((project) => (
+          {otherProjects
+          .filter((project) => !isTrash.includes(project.title))
+          .map((project) => (
             <article className="project-container" key={project.title}>
               <img src={project.image} alt={project.title} />
               <div className="project-content">
@@ -93,6 +72,16 @@ export function HomePage({isFavourite, toggleFavourite}) {
                   <FontAwesomeIcon
                     icon={isFavourite.includes(project.title) ? faHeartSolid : faHeartRegular}
                   />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => toggleTrash(project.title)}
+                  className={`trash-button ${
+                    isTrash.includes(project.title) ? "is-active" : ""
+                  }`}
+                  aria-label={`Move ${project.title} to trash`}
+                >
+                    <FontAwesomeIcon icon = {faTrash}/>
                 </button>
               </div>
             </article>

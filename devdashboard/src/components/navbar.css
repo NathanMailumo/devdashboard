@@ -1,6 +1,6 @@
 :root{
-  --navbar-bg: #ffffff;
-  --navbar-text: #0f172a;
+  --navbar-bg: #334155;
+  --navbar-text: #f8fafc;
 }
 .logo{
   text-decoration: none;
@@ -48,6 +48,10 @@
 .menu ul li a{
   color: var(--navbar-text);
   text-decoration: none;
+}
+
+.menu ul li a:hover{
+  color: #e2e8f0;
 }
 
 @media (max-width: 900px){

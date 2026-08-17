@@ -3,14 +3,20 @@ body{
   font: 400 1rem/1.5 "Inter", sans-serif;
   background: #f8fafc;
 }
-.homepage{
-  margin-left: 0;
-  padding-top: 128px;
+
+.app{
+  min-height: 100vh;
+}
+
+.app-content{
+  margin-left: 230px;
+  min-height: 100vh;
 }
 
 @media (max-width: 900px){
-  .homepage{
-    padding-top: 112px;
+  .app-content{
+    margin-left: 0;
+    padding-top: 88px;
   }
 }
 

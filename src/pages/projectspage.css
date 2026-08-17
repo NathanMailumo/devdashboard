@@ -1,5 +1,5 @@
 .projects-page{
-  padding: 128px 40px 40px;
+  padding: 24px 40px 40px;
   margin-left: 0;
   box-sizing: border-box;
 }
@@ -48,10 +48,42 @@
   height: 18px;
 }
 
+.trash-button{
+  position: absolute;
+  right: 62px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #475569;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+.trash-button:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.trash-button.is-active{
+  background: #fecaca;
+  color: #991b1b;
+}
+.trash-button svg{
+  width: 17px;
+  height: 17px;
+}
+
 @media (max-width: 900px){
   .projects-page{
     margin-left: 0;
-    padding: 112px 20px 20px;
+    padding: 20px;
   }
 }
 .project-container img {

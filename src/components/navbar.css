@@ -1,28 +1,32 @@
 :root{
-  --navbar-bg: #ffffff;
-  --navbar-text: #0f172a;
+  --navbar-bg: #334155;
+  --navbar-text: #f8fafc;
 }
 .logo{
   text-decoration: none;
   color: var(--navbar-text);
   font-weight: 700;
   letter-spacing: 0.08em;
+  display: inline-block;
+  margin-bottom: 16px;
 }
 .navbar{
-  width: min(960px, calc(100% - 32px));
+  width: 230px;
+  height: 100vh;
   background: var(--navbar-bg);
   color: var(--navbar-text);
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0;
   position: fixed;
-  top: 18px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 18px 28px;
-  border-radius: 999px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+  top: 0;
+  left: 0;
+  padding: 24px 16px;
+  border-radius: 0;
+  border-right: 1px solid #475569;
+  box-shadow: 10px 0 24px rgba(15, 23, 42, 0.06);
   box-sizing: border-box;
   z-index: 1000;
 }
@@ -31,37 +35,80 @@
 }
 .menu ul{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
   padding: 0;
   margin: 0;
-  flex-wrap: wrap;
 }
 .menu ul li{
   color: var(--navbar-text);
   list-style: none;
   font-weight: 500;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .menu ul li a{
+  display: block;
+  padding: 10px 12px;
   color: var(--navbar-text);
   text-decoration: none;
+  border-radius: 0;
+  transition: background-color 150ms ease;
+}
+
+.menu ul li a:hover{
+  background: #475569;
+}
+
+.navbar-main{
+  margin-top: 4px;
+}
+
+.navbar-bottom{
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #475569;
 }
 
 @media (max-width: 900px){
   .navbar{
     width: 100%;
-    border-radius: 0 0 24px 24px;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #475569;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
     top: 0;
     left: 0;
-    transform: none;
-    padding: 16px 20px;
-    justify-content: center;
+    padding: 14px 16px;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo{
+    margin-bottom: 0;
+  }
+
+  .navbar-main{
+    flex: 1;
   }
 
   .menu ul{
-    gap: 14px 18px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .menu ul li a{
+    padding: 8px 10px;
+  }
+
+  .navbar-bottom{
+    margin-top: 0;
+    margin-left: auto;
+    padding-top: 0;
+    border-top: 0;
   }
 }
