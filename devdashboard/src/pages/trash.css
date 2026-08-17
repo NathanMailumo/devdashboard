@@ -38,3 +38,106 @@
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 22px;
 }
+
+.trash-card{
+	overflow: hidden;
+	border-radius: 24px;
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	box-shadow: 0 16px 34px rgba(15, 23, 42, 0.1);
+	transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+.trash-card:hover{
+	transform: translateY(-4px);
+	box-shadow: 0 22px 40px rgba(15, 23, 42, 0.16);
+	border-color: #cbd5e1;
+}
+.trash-card img{
+	display: block;
+	width: 100%;
+	height: 200px;
+	object-fit: cover;
+}
+.trash-card-content{
+	display: grid;
+	gap: 10px;
+	padding: 18px 18px 20px;
+}
+.trash-card-content h3,
+.trash-card-content p{
+	margin: 0;
+}
+.trash-card-content h3{
+	font-size: 1.1rem;
+}
+.trash-stack{
+	color: #475569;
+}
+
+.restore-button{
+	margin-top: 4px;
+	justify-self: start;
+	display: inline-flex;
+	align-items: center;
+	padding: 10px 16px;
+	border: 0;
+	border-radius: 999px;
+	background: #0f172a;
+	color: #ffffff;
+	font-weight: 600;
+	cursor: pointer;
+	transition: transform 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+}
+.restore-button:hover{
+	transform: translateY(-2px);
+	background: #1e293b;
+	box-shadow: 0 12px 22px rgba(15, 23, 42, 0.2);
+}
+
+.trash-empty-state{
+	display: grid;
+	gap: 8px;
+	place-items: start;
+	padding: 28px;
+	border-radius: 24px;
+	background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+	border: 1px dashed #cbd5e1;
+	box-shadow: 0 16px 34px rgba(15, 23, 42, 0.06);
+}
+.trash-empty-state h2,
+.trash-empty-state p{
+	margin: 0;
+}
+.trash-empty-state h2{
+	font-size: 1.3rem;
+}
+.trash-empty-state p{
+	color: #64748b;
+}
+
+@media (max-width: 900px){
+	.trash-page{
+		width: min(100%, calc(100% - 24px));
+		padding-top: 20px;
+	}
+
+	.trash-header{
+		align-items: flex-start;
+		flex-direction: column;
+	}
+}
+
+@media (max-width: 640px){
+	.trash-page{
+		width: calc(100% - 36px);
+		padding-top: 18px;
+	}
+
+	.trash-grid{
+		grid-template-columns: 1fr;
+	}
+
+	.trash-empty-state{
+		padding: 22px;
+	}
+}

@@ -17,19 +17,19 @@ export function Trash({ isTrash, toggleTrash }) {
 
       {trashProjects.length === 0 ? (
         <div className="trash-empty-state">
-          <h2>No favourite projects yet.</h2>
-          <p>Deleted projects are only availble for 30 days.</p>
+          <h2>No deleted projects yet.</h2>
+          <p>Deleted projects are only available for 30 days.</p>
         </div>
       ) : (
-        <div className="favourites-grid">
+        <div className="trash-grid">
           {trashProjects.map((project) => (
-            <article className="project-card" key={project.title}>
+            <article className="trash-card" key={project.title}>
               <img src={project.image} alt={project.title} />
 
-              <div className="project-card-content">
+              <div className="trash-card-content">
                 <h3>{project.title}</h3>
                 <p>{project.description}</p>
-                <p className="project-stack">
+                <p className="trash-stack">
                   <strong>Stack:</strong> {project.stack}
                 </p>
 

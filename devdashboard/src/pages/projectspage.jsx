@@ -101,10 +101,12 @@ export function ProjectsPage({ isFavourite, toggleFavourite, isTrash, toggleTras
                 />
               </button>
               <button
-              onClick={() => toggleTrash(project.title)}
-                className={`trash button ${
+                type="button"
+                onClick={() => toggleTrash(project.title)}
+                className={`trash-button ${
                   isTrash.includes(project.title) ? "is-active" : ""
                 }`}
+                aria-label={`Move ${project.title} to trash`}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>

@@ -73,9 +73,14 @@ export function HomePage({isFavourite, toggleFavourite, isTrash, toggleTrash}) {
                     icon={isFavourite.includes(project.title) ? faHeartSolid : faHeartRegular}
                   />
                 </button>
-                <button onClick={()=>toggleTrash(project.title)} className = {`trash button ${
-                  isTrash.includes(project.title) ? "is-active" : ""
-                }`}>
+                <button
+                  type="button"
+                  onClick={() => toggleTrash(project.title)}
+                  className={`trash-button ${
+                    isTrash.includes(project.title) ? "is-active" : ""
+                  }`}
+                  aria-label={`Move ${project.title} to trash`}
+                >
                     <FontAwesomeIcon icon = {faTrash}/>
                 </button>
               </div>
