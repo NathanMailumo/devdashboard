@@ -1,0 +1,40 @@
+.trash-page{
+	width: min(1120px, calc(100% - 32px));
+	margin: 0 auto;
+	padding: 24px 0 40px;
+	color: #0f172a;
+}
+.trash-header{
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 16px;
+	margin-bottom: 22px;
+}
+.trash-kicker{
+	display: inline-flex;
+	margin-bottom: 8px;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: #64748b;
+}
+.trash-header h1{
+	margin: 0;
+	font-size: clamp(2rem, 3vw, 2.8rem);
+	line-height: 1;
+}
+.trash-count{
+	padding: 8px 14px;
+	border-radius: 999px;
+	background: #ffffff;
+	color: #475569;
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+	white-space: nowrap;
+}
+.trash-grid{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 22px;
+}

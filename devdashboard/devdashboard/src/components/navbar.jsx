@@ -4,21 +4,15 @@ import "./navbar.css";
 export function NavBar(){
     return(
         <nav className="navbar">
-          <Link className="logo" to="/">
+          <a className="logo" href="/">
             NAME.COM
-          </Link>
-
-          <div className="navbar-main menu">
+          </a>
+          <div className="menu">
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/projects">Projects</Link></li>
               <li><Link to="/favourites">Favorites</Link></li>
               <li><Link to="/trash">Trash</Link></li>
-            </ul>
-          </div>
-
-          <div className="navbar-bottom menu">
-            <ul>
               <li><Link to="/settings">Settings</Link></li>
             </ul>
           </div>

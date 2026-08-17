@@ -1,7 +1,7 @@
 .favourites-page{
 	width: min(1120px, calc(100% - 32px));
 	margin: 0 auto;
-	padding: 128px 0 40px;
+	padding: 24px 0 40px;
 	color: #0f172a;
 }
 .favourites-header{
@@ -125,7 +125,7 @@
 @media (max-width: 900px){
 	.favourites-page{
 		width: min(100%, calc(100% - 24px));
-		padding-top: 112px;
+		padding-top: 20px;
 	}
 
 	.favourites-header{
@@ -137,7 +137,7 @@
 @media (max-width: 640px){
 	.favourites-page{
 		width: calc(100% - 36px);
-		padding-top: 104px;
+		padding-top: 18px;
 	}
 
 	.favourites-grid{

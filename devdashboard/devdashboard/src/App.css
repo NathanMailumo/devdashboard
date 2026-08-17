@@ -1,0 +1,16 @@
+body{
+  margin: 0;
+  font: 400 1rem/1.5 "Inter", sans-serif;
+  background: #f8fafc;
+}
+.homepage{
+  margin-left: 0;
+  padding-top: 128px;
+}
+
+@media (max-width: 900px){
+  .homepage{
+    padding-top: 112px;
+  }
+}
+

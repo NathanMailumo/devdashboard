@@ -2,9 +2,15 @@ import "./favourite.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+import { faTrash} from "@fortawesome/free-solid-svg-icons";
 import { otherProjects } from "../data/projects.js";
 
-export function FavouritePage({ isFavourite, toggleFavourite }) {
+export function FavouritePage({
+  isFavourite,
+  toggleFavourite,
+  isTrash,
+  toggleTrash,
+}) {
   const favouriteProjects = otherProjects.filter((project) =>
     isFavourite.includes(project.title),
   );
@@ -16,7 +22,9 @@ export function FavouritePage({ isFavourite, toggleFavourite }) {
           <span className="favourites-kicker">Saved items</span>
           <h1>Favourite Projects</h1>
         </div>
-        <span className="favourites-count">{favouriteProjects.length} saved</span>
+        <span className="favourites-count">
+          {isFavourite.length} saved
+        </span>
       </div>
 
       {favouriteProjects.length === 0 ? (
@@ -26,7 +34,9 @@ export function FavouritePage({ isFavourite, toggleFavourite }) {
         </div>
       ) : (
         <div className="favourites-grid">
-          {favouriteProjects.map((project) => (
+          {favouriteProjects
+          .filter((project) => !isTrash.includes(project.title))
+          .map((project) => (
             <article className="project-card" key={project.title}>
               <img src={project.image} alt={project.title} />
 
@@ -52,6 +62,14 @@ export function FavouritePage({ isFavourite, toggleFavourite }) {
                         : faHeartRegular
                     }
                   />
+                </button>
+                <button
+                  onClick={() => toggleTrash(project.title)}
+                  className={`trash button ${
+                    isTrash.includes(project.title) ? "is-active" : ""
+                  }`}
+                >
+                  <FontAwesomeIcon icon={faTrash} />
                 </button>
               </div>
             </article>
