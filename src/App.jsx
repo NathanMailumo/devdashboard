@@ -7,31 +7,39 @@ import { Routes, Route } from "react-router-dom";
 import { ProjectsPage } from "./pages/projectspage";
 import { FavouritePage } from "./pages/favourite.jsx";
 import { Trash } from "./pages/trash.jsx";
+import { ProjectDetails } from "./pages/projectDetails.jsx";
+// import { otherProjects } from "./data/projects.js";
 
 function App() {
   const [isFavourite, setIsFavourite] = useState([]);
 
   const [isTrash, setIsTrash] = useState([]);
 
-  const toggleFavourite = (title) => {
+  const [isSearch, setIsSearch] = useState('')
+
+  const toggleFavourite = (id) => {
     setIsFavourite((prev) =>
-      prev.includes(title)
-        ? prev.filter((item) => item !== title)
-        : [...prev, title],
+      prev.includes(id)
+        ? prev.filter((item) => item !== id)
+        : [...prev, id],
     );
   };
 
-  const toggleTrash = (title) => {
+  const toggleTrash = (id) => {
     setIsTrash((prev) =>
-      prev.includes(title)
-        ? prev.filter((item) => item != title)
-        : [...prev, title],
+      prev.includes(id)
+        ? prev.filter((item) => item != id)
+        : [...prev, id],
     );
 
     setIsFavourite((prev) =>
-        prev.filter((item) => item !== title)
+        prev.filter((item) => item !== id)
     );
   };
+
+  const search = (event)=>{
+      setIsSearch(event.target.value)
+  }
 
   return (
     <div className="app">
@@ -45,7 +53,9 @@ function App() {
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
                 isTrash = {isTrash}
-                toggleTrash = {toggleTrash} 
+                toggleTrash = {toggleTrash}
+                isSearch = {isSearch} 
+                search = {search} 
               />
             }
           />
@@ -56,7 +66,9 @@ function App() {
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
                 isTrash = {isTrash}
-                toggleTrash = {toggleTrash} 
+                toggleTrash = {toggleTrash}
+                isSearch = {isSearch} 
+                search = {search} 
               />
             }
           />
@@ -88,6 +100,19 @@ function App() {
               <ProjectsPage
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
+                isTrash = {isTrash}
+                toggleTrash = {toggleTrash} 
+              />
+            }
+          />
+          <Route
+           path={`/projectDetails/:id`}
+            element={
+              <ProjectDetails
+                isFavourite={isFavourite}
+                toggleFavourite={toggleFavourite}
+                isTrash = {isTrash}
+                toggleTrash = {toggleTrash} 
               />
             }
           />
