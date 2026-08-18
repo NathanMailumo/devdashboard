@@ -1,13 +1,20 @@
 import "./homepage.css";
 import heroImage from "../assets/hero.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
-import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import {otherProjects} from "../data/projects"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
+// import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
+// import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { otherProjects } from "../data/projects";
+import { ProjectsDisplay } from "../components/projectsdisplay";
 
-export function HomePage({isFavourite, toggleFavourite, isTrash, toggleTrash}) {
-
+export function HomePage({
+  isFavourite,
+  toggleFavourite,
+  isTrash,
+  toggleTrash,
+  search,
+  isSearch,
+}) {
   return (
     <div className="homepage">
       <section className="featured-project">
@@ -41,52 +48,18 @@ export function HomePage({isFavourite, toggleFavourite, isTrash, toggleTrash}) {
             className="project-search"
             type="text"
             placeholder="Search Projects"
+            onChange={search}
+            value={isSearch}
           />
         </div>
 
-        <div className="projects-grid">
-          {otherProjects
-          .filter((project) => !isTrash.includes(project.title))
-          .map((project) => (
-            <article className="project-container" key={project.title}>
-              <img src={project.image} alt={project.title} />
-              <div className="project-content">
-                <div className="project-header">
-                  <h3>{project.title}</h3>
-                  <span className="project-status">{project.status}</span>
-                </div>
-                <p className="project-description">{project.description}</p>
-                <div className="project-meta">
-                  <p>
-                    <strong>Stack:</strong> {project.stack}
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  className={`favourite-button ${
-                    isFavourite.includes(project.title) ? "is-active" : ""
-                  }`}
-                  onClick={() => toggleFavourite(project.title)}
-                  aria-label={`Toggle favorite for ${project.title}`}
-                >
-                  <FontAwesomeIcon
-                    icon={isFavourite.includes(project.title) ? faHeartSolid : faHeartRegular}
-                  />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => toggleTrash(project.title)}
-                  className={`trash-button ${
-                    isTrash.includes(project.title) ? "is-active" : ""
-                  }`}
-                  aria-label={`Move ${project.title} to trash`}
-                >
-                    <FontAwesomeIcon icon = {faTrash}/>
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
+        <ProjectsDisplay
+          isFavourite={isFavourite}
+          isSearch={isSearch}
+          isTrash={isTrash}
+          toggleFavourite={toggleFavourite}
+          toggleTrash={toggleTrash}
+        />
       </section>
     </div>
   );

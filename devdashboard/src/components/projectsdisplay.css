@@ -1,0 +1,149 @@
+/* Card Link Reset */
+.project-container a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* Card Container */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-container {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  border: 1px solid #e2e8f0;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.project-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px rgba(15, 23, 42, 0.16);
+  border-color: #cbd5e1;
+}
+
+.project-container img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Card Body Content */
+.project-content {
+  padding: 18px;
+  padding-bottom: 64px; /* Clearance for position-absolute buttons */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #0f172a;
+}
+
+.project-status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.project-description,
+.project-meta p {
+  margin: 0;
+  color: #475569;
+}
+
+.project-meta {
+  display: grid;
+  gap: 6px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Action Buttons */
+.favourite-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.favourite-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+}
+
+.favourite-button.is-active {
+  color: #ef4444;
+}
+
+.favourite-button svg {
+  width: 18px;
+  height: 18px;
+}
+
+.trash-button {
+  position: absolute;
+  right: 62px;
+  bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #475569;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.trash-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 26px rgba(15, 23, 42, 0.16);
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.trash-button.is-active {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.trash-button svg {
+  width: 17px;
+  height: 17px;
+}
