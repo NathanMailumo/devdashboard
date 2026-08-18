@@ -12,7 +12,7 @@ export function FavouritePage({
   toggleTrash,
 }) {
   const favouriteProjects = otherProjects.filter((project) =>
-    isFavourite.includes(project.id),
+    isFavourite.includes(project.title),
   );
 
   return (
@@ -35,9 +35,9 @@ export function FavouritePage({
       ) : (
         <div className="favourites-grid">
           {favouriteProjects
-          .filter((project) => !isTrash.includes(project.id))
+          .filter((project) => !isTrash.includes(project.title))
           .map((project) => (
-            <article className="project-card" key={project.id}>
+            <article className="project-card" key={project.title}>
               <img src={project.image} alt={project.title} />
 
               <div className="project-card-content">
@@ -50,14 +50,14 @@ export function FavouritePage({
                 <button
                   type="button"
                   className={`favourite-button ${
-                    isFavourite.includes(project.id) ? "is-active" : ""
+                    isFavourite.includes(project.title) ? "is-active" : ""
                   }`}
-                  onClick={() => toggleFavourite(project.id)}
+                  onClick={() => toggleFavourite(project.title)}
                   aria-label={`Remove ${project.title} from favourites`}
                 >
                   <FontAwesomeIcon
                     icon={
-                      isFavourite.includes(project.id)
+                      isFavourite.includes(project.title)
                         ? faHeartSolid
                         : faHeartRegular
                     }
@@ -65,9 +65,9 @@ export function FavouritePage({
                 </button>
                 <button
                   type="button"
-                  onClick={() => toggleTrash(project.id)}
+                  onClick={() => toggleTrash(project.title)}
                   className={`trash-button ${
-                    isTrash.includes(project.id) ? "is-active" : ""
+                    isTrash.includes(project.title) ? "is-active" : ""
                   }`}
                   aria-label={`Move ${project.title} to trash`}
                 >

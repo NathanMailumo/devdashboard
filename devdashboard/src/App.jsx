@@ -7,39 +7,31 @@ import { Routes, Route } from "react-router-dom";
 import { ProjectsPage } from "./pages/projectspage";
 import { FavouritePage } from "./pages/favourite.jsx";
 import { Trash } from "./pages/trash.jsx";
-import { ProjectDetails } from "./pages/projectDetails.jsx";
-// import { otherProjects } from "./data/projects.js";
 
 function App() {
   const [isFavourite, setIsFavourite] = useState([]);
 
   const [isTrash, setIsTrash] = useState([]);
 
-  const [isSearch, setIsSearch] = useState('')
-
-  const toggleFavourite = (id) => {
+  const toggleFavourite = (title) => {
     setIsFavourite((prev) =>
-      prev.includes(id)
-        ? prev.filter((item) => item !== id)
-        : [...prev, id],
+      prev.includes(title)
+        ? prev.filter((item) => item !== title)
+        : [...prev, title],
     );
   };
 
-  const toggleTrash = (id) => {
+  const toggleTrash = (title) => {
     setIsTrash((prev) =>
-      prev.includes(id)
-        ? prev.filter((item) => item != id)
-        : [...prev, id],
+      prev.includes(title)
+        ? prev.filter((item) => item != title)
+        : [...prev, title],
     );
 
     setIsFavourite((prev) =>
-        prev.filter((item) => item !== id)
+        prev.filter((item) => item !== title)
     );
   };
-
-  const search = (event)=>{
-      setIsSearch(event.target.value)
-  }
 
   return (
     <div className="app">
@@ -53,9 +45,7 @@ function App() {
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
                 isTrash = {isTrash}
-                toggleTrash = {toggleTrash}
-                isSearch = {isSearch} 
-                search = {search} 
+                toggleTrash = {toggleTrash} 
               />
             }
           />
@@ -66,9 +56,7 @@ function App() {
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
                 isTrash = {isTrash}
-                toggleTrash = {toggleTrash}
-                isSearch = {isSearch} 
-                search = {search} 
+                toggleTrash = {toggleTrash} 
               />
             }
           />
@@ -100,19 +88,6 @@ function App() {
               <ProjectsPage
                 isFavourite={isFavourite}
                 toggleFavourite={toggleFavourite}
-                isTrash = {isTrash}
-                toggleTrash = {toggleTrash} 
-              />
-            }
-          />
-          <Route
-           path={`/projectDetails/:id`}
-            element={
-              <ProjectDetails
-                isFavourite={isFavourite}
-                toggleFavourite={toggleFavourite}
-                isTrash = {isTrash}
-                toggleTrash = {toggleTrash} 
               />
             }
           />

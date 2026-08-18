@@ -3,7 +3,7 @@ import './trash.css'
 
 export function Trash({ isTrash, toggleTrash }) {
   const trashProjects = otherProjects.filter((project) =>
-    isTrash.includes(project.id),
+    isTrash.includes(project.title),
   );
   return (
     <section className="trash-page">
@@ -23,7 +23,7 @@ export function Trash({ isTrash, toggleTrash }) {
       ) : (
         <div className="trash-grid">
           {trashProjects.map((project) => (
-            <article className="trash-card" key={project.id}>
+            <article className="trash-card" key={project.title}>
               <img src={project.image} alt={project.title} />
 
               <div className="trash-card-content">
@@ -35,7 +35,7 @@ export function Trash({ isTrash, toggleTrash }) {
 
                 <button
                   className="restore-button"
-                  onClick={() => toggleTrash(project.id)}
+                  onClick={() => toggleTrash(project.title)}
                 >
                   Restore
                 </button>
