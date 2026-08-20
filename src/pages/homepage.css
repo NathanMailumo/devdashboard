@@ -250,6 +250,76 @@
     height: 17px;
 }
 
+
+/* .home-projects-status{
+
+} */
+ .homepage-title {
+    width: min(1120px, 100%);
+    margin: 0 auto 24px;
+}
+
+.homepage-title h1 {
+    margin: 0;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.homepage-title p {
+    margin: 6px 0 0;
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.home-projects-status {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    width: min(1120px, 100%);
+    margin: 0 auto 40px;
+}
+
+.completed-status,
+.inProgress-status,
+.favourite-status {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    box-shadow: 0 14px 30px rgba(15, 23, 42, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.completed-status:hover,
+.inProgress-status:hover,
+.favourite-status:hover {
+    transform: translateY(-3px);
+    border-color: #cbd5e1;
+    box-shadow: 0 18px 34px rgba(15, 23, 42, 0.1);
+}
+
+.completed-status span,
+.inProgress-status span,
+.favourite-status span {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.completed-status h1,
+.inProgress-status h1,
+.favourite-status h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1;
+}
+
 @media (max-width: 900px){
     .featured-project{
         grid-template-columns: 1fr;
