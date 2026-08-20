@@ -5,18 +5,22 @@ import heroImage from "../assets/hero.png";
 // import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
 // import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { otherProjects } from "../data/projects";
-import { ProjectsDisplay } from "../components/projectsdisplay";
+// import { ProjectsDisplay } from "../components/projectsdisplay";
 
 export function HomePage({
   isFavourite,
-  toggleFavourite,
-  isTrash,
-  toggleTrash,
+  // toggleFavourite,
+  // isTrash,
+  // toggleTrash,
   search,
   isSearch,
 }) {
   return (
     <div className="homepage">
+      <div className="homepage-title">
+        <h1>Welcome, User</h1>
+        <p>Keep track of your projects and progress</p>
+      </div>
       <section className="featured-project">
         <div className="featured-project-media">
           <img src={heroImage} alt="New project" />
@@ -37,7 +41,7 @@ export function HomePage({
         </div>
       </section>
 
-      <section className="projects-section">
+      {/* <section className="projects-section">
         <div className="section-heading">
           <h3>Other Projects</h3>
           <span>{otherProjects.length} projects</span>
@@ -52,14 +56,42 @@ export function HomePage({
             value={isSearch}
           />
         </div>
+      </section> */}
 
-        <ProjectsDisplay
-          isFavourite={isFavourite}
-          isSearch={isSearch}
-          isTrash={isTrash}
-          toggleFavourite={toggleFavourite}
-          toggleTrash={toggleTrash}
-        />
+      <section className="home-projects-status">
+        <div className="completed-status">
+          <span>Total Projects</span>
+          <h1>{otherProjects.length}</h1>
+        </div>
+        <div className="completed-status">
+          <span>Active Projects</span>
+          <h1>
+            {
+              otherProjects.filter((project) => {
+                return project.status === "Active";
+              }).length
+            }
+          </h1>
+        </div>
+        <div className="inProgress-status">
+          <span>In Progress</span>
+          <h1>
+            {
+              otherProjects.filter((project) => {
+                return project.status === "In Review";
+              }).length
+            }
+          </h1>
+        </div>
+        <div className="favourite-status">
+          <span>Favourite Projects</span>
+          <h1>
+            {
+              otherProjects.filter((project) => isFavourite.includes(project.id))
+                .length
+            }
+          </h1>
+        </div>
       </section>
     </div>
   );

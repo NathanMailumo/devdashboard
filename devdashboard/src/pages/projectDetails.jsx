@@ -1,6 +1,7 @@
 import { NavBar } from "../components/navbar";
 import { otherProjects } from "../data/projects";
 import { useParams } from "react-router-dom";
+import './projectDetails.css'
 
 export function ProjectDetails() {
   const { id } = useParams();
